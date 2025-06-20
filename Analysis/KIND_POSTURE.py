@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # load the dataset
-xlsx_path = "Data/양순희.xlsx"
+xlsx_path = "Data/박기희.xlsx"
 df_his = pd.read_excel(xlsx_path, sheet_name='HISTORY', skiprows=8)
 
 # clean REGDATE into python datetime format
@@ -53,6 +53,6 @@ df_transition_poop = df_his[df_his['KIND']==1][['prev_posture', 'POSTURE']]
 transition_counts_poop = df_transition_poop.value_counts().reset_index(name='count')
 print(transition_counts_poop.head())
 
-df_transition_poop = df_his[df_his['KIND']==1][['prev_posture', 'POSTURE']]
-transition_counts_poop = df_transition_poop.value_counts().reset_index(name='count')
-print(transition_counts_poop.head())
+df_transition_pee = df_his[df_his['KIND']==0][['prev_posture', 'POSTURE']]
+transition_counts_pee = df_transition_pee.value_counts().reset_index(name='count')
+print(transition_counts_pee.head())
